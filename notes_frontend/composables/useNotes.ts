@@ -5,11 +5,14 @@ import { ref } from 'vue'
  * Assumes the backend API base URL is set in the runtime config as 'public.apiBase'.
  */
 
-const apiBase = useRuntimeConfig().public?.apiBase || '/api'
+// Move useRuntimeConfig inside the composable function to ensure proper Nuxt context
 
+// PUBLIC_INTERFACE
 export function useNotes() {
   const loading = ref(false)
-  const error = ref<string|null>(null)
+  const error = ref<string | null>(null)
+  // useRuntimeConfig is now inside setup/composable function
+  const apiBase = useRuntimeConfig().public?.apiBase || '/api'
 
   // PUBLIC_INTERFACE
   async function listNotes() {
@@ -26,7 +29,7 @@ export function useNotes() {
     }
   }
   // PUBLIC_INTERFACE
-  async function getNote(id: number|string) {
+  async function getNote(id: number | string) {
     loading.value = true
     error.value = null
     try {
@@ -57,7 +60,7 @@ export function useNotes() {
     }
   }
   // PUBLIC_INTERFACE
-  async function updateNote(id: number|string, data: { title: string; content: string }) {
+  async function updateNote(id: number | string, data: { title: string; content: string }) {
     loading.value = true
     error.value = null
     try {
@@ -74,7 +77,7 @@ export function useNotes() {
     }
   }
   // PUBLIC_INTERFACE
-  async function deleteNote(id: number|string) {
+  async function deleteNote(id: number | string) {
     loading.value = true
     error.value = null
     try {
