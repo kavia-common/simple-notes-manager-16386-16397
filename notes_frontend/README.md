@@ -1,75 +1,66 @@
-# Nuxt Minimal Starter
+# Notes Manager Nuxt Frontend
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A modern, minimal, light-themed frontend for creating, editing, and managing notes.
+
+## Features
+
+- List, create, edit, and delete notes (CRUD).
+- Modern, minimal, mobile-friendly UI using Nuxt 3 and Vue 3.
+- Layout with header, sidebar navigation, and main display area.
+- Light theme; colors: Primary `#2196F3`, Secondary `#757575`, Accent `#FFEB3B`.
+- All note UI actions use API calls (API base configurable).
+
+## Folder Structure
+
+- `components/` - Shared UI components (HeaderBar, SidebarNav, NoteForm, DeleteConfirmModal)
+- `composables/useNotes.ts` - Notes API composable for CRUD functions
+- `pages/` - Main app pages:
+  - `/` - List all notes
+  - `/new` - Create a note
+  - `/edit/[id]` - Edit a note
 
 ## Setup
 
-Make sure to install dependencies:
-
 ```bash
-# npm
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Start Dev Server
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+App runs at `http://localhost:3000`.
 
-Build the application for production:
+## Configuration
+
+The API endpoint can be set via the env variable:
 
 ```bash
-# npm
+NUXT_PUBLIC_API_BASE="http://localhost:8000/api"
+```
+
+If not set, defaults to `/api`.
+
+## Styling
+
+- Layout: Header and sidebar, responsive
+- Colors: 
+  - Primary: #2196F3
+  - Secondary: #757575
+  - Accent: #FFEB3B
+- Font: Inter, Segoe UI, Arial
+
+## Icons
+
+[Google Material Symbols](https://fonts.google.com/icons) are used via CDN.
+
+## Production Build
+
+```bash
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## License
+
+MIT
